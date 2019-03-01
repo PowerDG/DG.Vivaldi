@@ -69,9 +69,36 @@ Docker支持直接安装并运行在windows环境下，但对Windows的版本和
 
 ```powershell
 `sudo sed -i ``"s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g"` `/``var``/lib/boot2docker/profile`
+
+
+
+https://anuzyij8.mirror.aliyuncs.com
+
+sudo sed -i ``"s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g"` `/``var``/lib/boot2docker/profile`
+
 ```
 
+`docker-machine ssh default       
 
+$ sudo sed -i 
+"s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://anuzyij8.mirror.aliyuncs.com |g" 
+/var/lib/boot2docker/profile       
+
+
+
+
+
+`sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://anuzyij8.mirror.aliyuncs.com |g" /var/lib/boot2docker/profile`
+
+
+
+
+
+$ exit       
+
+$ docker-machine restart default
+
+docker-machine restart default
 
 https://cr.console.aliyun.com/cn-hangzhou/mirrors
 
