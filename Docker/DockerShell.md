@@ -92,6 +92,18 @@ $ sudo sed -i
 
 
 
+➜  ~ docker-machine ssh default "echo 'EXTRA_ARGS=\"--registry-mirror=<https://anuzyij8.mirror.aliyuncs.com> \"' | sudo tee -a /var/lib/boot2docker/profile"
+EXTRA_ARGS="--registry-mirror=https://anuzyij8.mirror.aliyuncs.com"
+➜  ~ docker-machine restart default
+
+
+
+```
+➜  ~ docker-machine ssh default "echo 'EXTRA_ARGS=\"--registry-mirror=https://yourcode.mirror.aliyuncs.com\"' | sudo tee -a /var/lib/boot2docker/profile"
+EXTRA_ARGS="--registry-mirror=https://xxx.mirror.aliyuncs.com"
+➜  ~ docker-machine restart default
+```
+
 
 
 $ exit       
