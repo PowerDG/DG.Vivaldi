@@ -78,7 +78,9 @@ sudo sed -i ``"s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g"` `/
 
 ```
 
-`docker-machine ssh default       
+###### 1登录
+
+docker-machine ssh default       
 
 $ sudo sed -i 
 "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://anuzyij8.mirror.aliyuncs.com |g" 
@@ -86,7 +88,7 @@ $ sudo sed -i
 
 
 
-
+###### 2镜像
 
 `sudo sed -i "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://anuzyij8.mirror.aliyuncs.com |g" /var/lib/boot2docker/profile`
 
@@ -104,13 +106,19 @@ EXTRA_ARGS="--registry-mirror=https://xxx.mirror.aliyuncs.com"
 ➜  ~ docker-machine restart default
 ```
 
-
+###### 5退出
 
 $ exit       
+
+###### 6重启
 
 $ docker-machine restart default
 
 docker-machine restart default
+
+
+
+ 
 
 https://cr.console.aliyun.com/cn-hangzhou/mirrors
 
