@@ -82,6 +82,11 @@ sudo sed -i ``"s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=加速地址 |g"` `/
 
 docker-machine ssh default       
 
+```
+docker-machine ssh default // 先进入虚拟机，default 是默认的虚拟机名称
+sudo vi /var/lib/boot2docker/profile // 编辑这个文件，添加镜像源 --registry-mirror https://registry.docker-cn.com
+```
+
 $ sudo sed -i 
 "s|EXTRA_ARGS='|EXTRA_ARGS='--registry-mirror=https://anuzyij8.mirror.aliyuncs.com |g" 
 /var/lib/boot2docker/profile       
@@ -109,6 +114,13 @@ EXTRA_ARGS="--registry-mirror=https://xxx.mirror.aliyuncs.com"
 ###### 5退出
 
 $ exit       
+
+```
+sudo /etc/init.d/docker restart // 重启 docker 进程
+exit // 退出虚拟机
+docker info // 看一下镜像源是否设置成功（是否有刚刚设置的 --registry-mirror 这一行）
+docker pull nginx // 现在可以愉快地拉取`nginx`镜像了
+```
 
 ###### 6重启
 
