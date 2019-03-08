@@ -23,7 +23,7 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
 2.  查看容器日志
 
     ```
-    docker logs -f <容器名orID>
+    c <容器名orID>
     ```
 
 3.  查看正在运行的容器
@@ -88,9 +88,9 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
     ```
     docker pull <镜像名:tag>
     ```
-
+    
      如
-
+    
     ```
     docker pull sameersbn/redmine:latest
     ```
@@ -101,9 +101,9 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
     ```
     docker save busybox-1 > /home/save.tar
     ```
-
+    
      使用scp将save.tar拷到机器b上，然后：
-
+    
     ```
     docker load < /home/save.tar
     ```
@@ -113,9 +113,9 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
     ```
     docker build -t <镜像名> <Dockerfile路径>
     ```
-
+    
      如Dockerfile在当前路径：
-
+    
     ```
     docker build -t xx/gitlab .
     ```
@@ -159,7 +159,7 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
     ```
     sudo docker cp 7bb0e258aefe:/etc/debian_version .
     ```
-
+    
      拷贝7bb0e258aefe中的/etc/debian_version到当前目录下。
     `注意`：只要7bb0e258aefe没有被删除，文件命名空间就还在，可以放心的把exit状态的container的文件拷贝出来
 
