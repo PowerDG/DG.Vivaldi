@@ -71,12 +71,10 @@ https://blog.csdn.net/wsscy2004/article/details/25878363
     docker run --name redmine -p 9003:80 -p 9023:22 -d -v /var/redmine/files:/redmine/files -v /var/redmine/mysql:/var/lib/mysql sameersbn/redmine
     ```
 
-9.  一个容器连接到另一个容器
+9. 一个容器连接到另一个容器
 
     ```
     docker run -i -t --name sonar -d -link mmysql:db   tpires/sonar-server
-    
-    
     
     sonar
     ```
