@@ -33,7 +33,9 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 
 
 
-控制台
+管理包控制台对应EF所在项目
+
+启动项对应配置文件启动项目
 
 工具 - > NuGet软件包管理器 - >软件包管理器控制台 
 //创建模型的初始表 
