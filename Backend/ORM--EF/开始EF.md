@@ -30,3 +30,14 @@ Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
 Install-Package Microsoft.EntityFrameworkCore.Tools
 ```
+
+
+
+控制台
+
+工具 - > NuGet软件包管理器 - >软件包管理器控制台 
+//创建模型的初始表 
+**Add-Migration InitialCreate** 
+//将新迁移应用于数据库 
+**Update-Database**
+
