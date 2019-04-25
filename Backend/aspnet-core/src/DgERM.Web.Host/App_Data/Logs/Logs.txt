@@ -1,0 +1,159 @@
+DEBUG 2019-03-03 13:00:58,865 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-03 13:00:59,308 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-03 13:00:59,377 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.Web.Host.Startup.DgERMWebHostModule, DgERM.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,385 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMWebCoreModule, DgERM.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMApplicationModule, DgERM.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,387 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMCoreModule, DgERM.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,388 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,389 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,390 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,393 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,393 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.EntityFrameworkCore.DgERMEntityFrameworkModule, DgERM.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,394 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,394 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,395 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,396 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,397 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:00:59,403 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-03 13:00:59,711 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-03 13:00:59,712 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-03 13:00:59,714 [1    ] o.Configuration.LanguageManagementConfig - Converted DgERM (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-03 13:00:59,714 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-03 13:01:00,821 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: DgERM.EntityFrameworkCore.DgERMDbContext, DgERM.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-03 13:01:04,399 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-03 13:01:04,800 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-03 13:01:04,961 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-03 13:01:05,021 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: DgERM
+DEBUG 2019-03-03 13:01:05,141 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-03 13:01:06,108 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-03 13:01:06,295 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 10 classes define auto mapping attributes
+DEBUG 2019-03-03 13:01:06,298 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-03 13:01:06,319 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Users.Dto.CreateUserDto
+DEBUG 2019-03-03 13:01:06,322 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Users.Dto.UserDto
+DEBUG 2019-03-03 13:01:06,323 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-03 13:01:06,324 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-03 13:01:06,324 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-03 13:01:06,324 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.PermissionDto
+DEBUG 2019-03-03 13:01:06,324 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.RoleDto
+DEBUG 2019-03-03 13:01:06,326 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-03 13:01:06,327 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.MultiTenancy.Dto.TenantDto
+INFO  2019-03-03 13:01:24,926 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:21021/  0
+INFO  2019-03-03 13:01:24,926 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-03 13:01:25,163 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 229.7668ms 200 
+INFO  2019-03-03 13:01:39,022 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host)
+INFO  2019-03-03 13:01:42,357 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host) - Validation state: Valid
+INFO  2019-03-03 13:01:42,374 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 4.8493ms.
+INFO  2019-03-03 13:01:42,976 [8    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-03 13:01:43,046 [8    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host) in 3977.8629ms
+INFO  2019-03-03 13:01:43,198 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 18281.3717ms 302 
+INFO  2019-03-03 13:01:43,214 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-03 13:01:43,385 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 159.2037ms 200 text/html
+INFO  2019-03-03 13:01:43,627 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-03 13:01:43,628 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-03 13:01:43,634 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-03 13:01:43,677 [9    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-bundle.js was not modified
+INFO  2019-03-03 13:01:43,706 [8    ] NetCore.StaticFiles.StaticFileMiddleware - The file /swagger-ui-standalone-preset.js was not modified
+INFO  2019-03-03 13:01:43,719 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 77.5058ms 304 application/javascript
+INFO  2019-03-03 13:01:43,787 [8    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 126.2381ms 304 application/javascript
+INFO  2019-03-03 13:01:43,944 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-03-03 13:01:43,984 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 363.0293ms 200 text/css
+INFO  2019-03-03 13:01:45,402 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-03 13:01:46,025 [9    ] uthentication.JwtBearer.JwtBearerHandler - Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenInvalidSignatureException: IDX10503: Signature validation failed. Keys tried: '[PII is hidden]'.
+Exceptions caught:
+ '[PII is hidden]'.
+token: '[PII is hidden]'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, TokenValidationParameters validationParameters) in C:\agent2\_work\56\s\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:line 975
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken) in C:\agent2\_work\56\s\src\System.IdentityModel.Tokens.Jwt\JwtSecurityTokenHandler.cs:line 718
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+INFO  2019-03-03 13:01:46,034 [9    ] uthentication.JwtBearer.JwtBearerHandler - JwtBearer was not authenticated. Failure message: IDX10503: Signature validation failed. Keys tried: '[PII is hidden]'.
+Exceptions caught:
+ '[PII is hidden]'.
+token: '[PII is hidden]'.
+INFO  2019-03-03 13:01:46,919 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 1631.7172ms 200 application/json;charset=utf-8
+DEBUG 2019-03-07 10:29:01,714 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-03-07 10:29:02,019 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2019-03-07 10:29:02,052 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.Web.Host.Startup.DgERMWebHostModule, DgERM.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,056 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMWebCoreModule, DgERM.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,057 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMApplicationModule, DgERM.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.DgERMCoreModule, DgERM.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,062 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DgERM.EntityFrameworkCore.DgERMEntityFrameworkModule, DgERM.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,063 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,063 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,064 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,065 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,065 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,066 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:02,071 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2019-03-07 10:29:02,237 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 10:29:02,237 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 10:29:02,238 [1    ] o.Configuration.LanguageManagementConfig - Converted DgERM (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 10:29:02,238 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2019-03-07 10:29:03,109 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: DgERM.EntityFrameworkCore.DgERMDbContext, DgERM.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-03-07 10:29:05,580 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2019-03-07 10:29:05,808 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-03-07 10:29:05,893 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2019-03-07 10:29:05,925 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: DgERM
+DEBUG 2019-03-07 10:29:05,980 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-03-07 10:29:06,309 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-03-07 10:29:06,409 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 15 classes define auto mapping attributes
+DEBUG 2019-03-07 10:29:06,409 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2019-03-07 10:29:06,421 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Users.Dto.CreateUserDto
+DEBUG 2019-03-07 10:29:06,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Users.Dto.UserDto
+DEBUG 2019-03-07 10:29:06,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2019-03-07 10:29:06,422 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Sessions.Dto.UserLoginInfoDto
+DEBUG 2019-03-07 10:29:06,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.CreateRoleDto
+DEBUG 2019-03-07 10:29:06,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.PermissionDto
+DEBUG 2019-03-07 10:29:06,423 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.Roles.Dto.RoleDto
+DEBUG 2019-03-07 10:29:06,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2019-03-07 10:29:06,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.MultiTenancy.Dto.TenantDto
+DEBUG 2019-03-07 10:29:06,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.DgDemo.Tasks.TaskDto
+DEBUG 2019-03-07 10:29:06,424 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.DgDemo.Tasks.GetTasksOutput
+DEBUG 2019-03-07 10:29:06,425 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.DgDemo.Tasks.CreateTaskInput
+DEBUG 2019-03-07 10:29:06,425 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.DgDemo.Tasks.UpdateTaskInput
+DEBUG 2019-03-07 10:29:06,425 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - DgERM.DgDemo.Tasks.GetTasksInput
+INFO  2019-03-07 10:29:16,832 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 DEBUG http://localhost:21021/  0
+INFO  2019-03-07 10:29:16,832 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2019-03-07 10:29:16,982 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 183.0411ms 200 
+INFO  2019-03-07 10:29:25,145 [3    ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Index", controller = "Home", area = ""}. Executing action DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host)
+INFO  2019-03-07 10:29:27,032 [3    ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host) - Validation state: Valid
+INFO  2019-03-07 10:29:27,053 [3    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 12.5902ms.
+INFO  2019-03-07 10:29:27,521 [9    ] vc.Infrastructure.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2019-03-07 10:29:27,568 [9    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action DgERM.Web.Host.Controllers.HomeController.Index (DgERM.Web.Host) in 2411.7773ms
+INFO  2019-03-07 10:29:27,630 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2019-03-07 10:29:27,635 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 10842.1155ms 302 
+INFO  2019-03-07 10:29:27,670 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 37.5794ms 301 
+INFO  2019-03-07 10:29:27,672 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/index.html  
+INFO  2019-03-07 10:29:27,798 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 65.8648ms 200 text/html
+INFO  2019-03-07 10:29:27,936 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-bundle.js  
+INFO  2019-03-07 10:29:27,945 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.css  
+INFO  2019-03-07 10:29:27,968 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui-standalone-preset.js  
+INFO  2019-03-07 10:29:27,973 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.swagger.js  
+INFO  2019-03-07 10:29:27,975 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js  
+INFO  2019-03-07 10:29:28,027 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'E:\GitHub\DgERM\aspnet-core\src\DgERM.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2019-03-07 10:29:28,030 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'E:\GitHub\DgERM\aspnet-core\src\DgERM.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2019-03-07 10:29:28,039 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 113.019ms 200 application/javascript
+INFO  2019-03-07 10:29:28,055 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 88.7836ms 200 application/javascript
+INFO  2019-03-07 10:29:28,171 [3    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2019-03-07 10:29:28,267 [3    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 263.8589ms 200 text/css
+INFO  2019-03-07 10:29:28,296 [9    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2019-03-07 10:29:28,337 [9    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 365.1889ms 200 application/javascript
+INFO  2019-03-07 10:29:28,475 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2019-03-07 10:29:28,481 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 564.7685ms 200 application/javascript
+INFO  2019-03-07 10:29:29,086 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/favicon-16x16.png  
+INFO  2019-03-07 10:29:29,129 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2019-03-07 10:29:29,165 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 48.8345ms 200 image/png
+INFO  2019-03-07 10:29:29,351 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2019-03-07 10:29:30,164 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 817.2581ms 200 application/json;charset=utf-8
+INFO  2019-03-07 10:34:28,479 [38   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 POST http://localhost:21021/api/TokenAuth/Authenticate application/json 50
+INFO  2019-03-07 10:34:28,611 [38   ] ore.Mvc.Internal.ControllerActionInvoker - Route matched with {action = "Authenticate", controller = "TokenAuth", area = ""}. Executing action DgERM.Controllers.TokenAuthController.Authenticate (DgERM.Web.Core)
+INFO  2019-03-07 10:34:30,585 [38   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method DgERM.Controllers.TokenAuthController.Authenticate (DgERM.Web.Core) with arguments (DgERM.Models.TokenAuth.AuthenticateModel) - Validation state: Valid
+INFO  2019-03-07 10:34:32,019 [39   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action method DgERM.Controllers.TokenAuthController.Authenticate (DgERM.Web.Core), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1432.1975ms.
+INFO  2019-03-07 10:34:32,059 [14   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2019-03-07 10:34:32,102 [14   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action DgERM.Controllers.TokenAuthController.Authenticate (DgERM.Web.Core) in 3477.7785ms
+INFO  2019-03-07 10:34:32,157 [14   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 3670.1735ms 200 application/json; charset=utf-8

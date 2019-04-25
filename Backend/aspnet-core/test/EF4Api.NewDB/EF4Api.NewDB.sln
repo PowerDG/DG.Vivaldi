@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF4Api.NewDB", "EF4Api.NewDB\EF4Api.NewDB.csproj", "{CFDD70F0-F4A9-456E-8832-939BAC52FA21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreApi.Model", "CoreApi.Model\CoreApi.Model.csproj", "{319381F2-D276-43DB-9E08-BB624FDD6114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFDD70F0-F4A9-456E-8832-939BAC52FA21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFDD70F0-F4A9-456E-8832-939BAC52FA21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFDD70F0-F4A9-456E-8832-939BAC52FA21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFDD70F0-F4A9-456E-8832-939BAC52FA21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319381F2-D276-43DB-9E08-BB624FDD6114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319381F2-D276-43DB-9E08-BB624FDD6114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319381F2-D276-43DB-9E08-BB624FDD6114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319381F2-D276-43DB-9E08-BB624FDD6114}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC16FD8E-7848-442E-B0BC-143866A04E93}
+	EndGlobalSection
+EndGlobal
