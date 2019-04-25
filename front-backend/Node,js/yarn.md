@@ -9,6 +9,14 @@ Yarn是Facebook最近发布的一款依赖包安装工具。Yarn是一个新的�
 ```
 //在NPM 中安装
 npm install -g yarn
+
+
+yarn config get registry
+https://registry.yarnpkg.com
+
+yarn config set registry 'https://registry.npm.taobao.org'
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
  
