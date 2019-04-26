@@ -8,9 +8,30 @@
 
 ## 	MongoDB 创建角色  
 
+先来回顾一下目前比较流行的权限管理方案。 
+
+ 	![权限系统的设计与实现](assets/rbac-mongodb-secure.png) 
+
+ 	上图是目前多少权限系统的设计与实现。 
+
+ 	MongoDB 2.6 从版本开始，MongoDB 已经开始尝试引入相对精细的权限控制，不过直到 MongoDB3.0 版本权限体系才算相对完善，所以本文将主要介绍 MongoDB3.0 版本的权限控制机制。 
+
+##  	MongoDB 中的权限  
+
+ 	MongoDB 的权限设计与上面类似。MongoDB 中的权限主要有下面 6 个对象组成。 
+
+-  		user：用户，用于提供客户端连接 MongoDB 的认证账户 	
+-  		role：角色，数据权限的集合，创建用户的时候必须要指定对应的角色，否则用户无法操作数据库 	
+-  		resource：资源，包括database或collection也可以是database和collection的组合。例如：{ db:  <database>, collection: <collection> }  当然你也可能看到一种特殊的资源：{"cluster" : true}，它其实表示的是全局资源 	
+-  		actions：权限操作，"actions" 定义了"user"能够对 "resource  document"执行的操作。例如，增删改查包括如下操作：find、insert、remove、update。以及其他  serverStatus、killop、inprog、killCursors 等更高级权限 	
+-  		privilege：权限，"privilege" 是一组"resource" 和 "actions" 的组合 	
+-  		authenticationDatabase：认证库，即创建角色或用户时所在的库。例如，在 admin 下创建了 MongoDB 用户那么登陆的时候需要指定认证库 	
+
+
+
  	MongoDB 里角色分为 ”内建角色“ 和 ”用户自定义“ 角色两种。内建角色是 MongoDB  为了方便用户管理和内部操作进行的预定义的一些权限。多数时候为了精细化权限控制 MongoDB 的内建角色无法满足我们的需求，因此需要 DBA  自定义角色来进行更加详细的权限控制。 
 
-```csharp
+```json
 `use xttblog //进入 xttblog 数据库` `db.createRole(``    ``{ ``    ``role:``"testrole"``,//角色名称``    ``privileges``: [ // 权限集``        ``{``            ``resource: //资源 ``                            ``{``                                    ``db:``"jhr"``, //创建的testrole角色具有对xttblog库的操作权限，具体权限建actions``                                    ``collection:``""` `//xttblog库下对应的集合名.如果为``""``表示所有集合``                            ``},``                        ``actions: [ ``"find"``, ``"insert"``, ``"remove"``,``"update"` `] //角色可进行的操作，注意这里是一个数组``                ``}``        ``],``        ``roles: [] // 是否继承其他的角色，如果指定了其他角色那么新创建的角色自动继承对应其他角色的所有权限，该参数必须显示指定``    ``}``)`
 ```
 
@@ -26,7 +47,7 @@
 
  	也可以使用下面的查询语句查看角色信息。 
 
-```
+```json
 `db.getRole(``"testrole"``, //要查看角色的名字``    ``{ ``        ``showPrivileges: ``true` `//指定查看角色信息的时候是否显示它所拥有的权限信息，也可不指定``    ``} ``)``// 业余草：www.xttblog.com``db.getRoles(``    ``{``      ``rolesInfo: 1,``      ``showPrivileges:``true``,``      ``showBuiltinRoles: ``true``    ``}``)`
 ```
 
