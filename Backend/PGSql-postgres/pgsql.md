@@ -16,13 +16,31 @@ Update-Database
 ```
 
 ```
-Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
-Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
 Install-Package Microsoft.EntityFrameworkCore.Tools
+Install-Package Npgsql.EntityFrameworkCore.PostgreSQL 
+Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
+
 ```
 
 
 
+   #####  public static class ERMDbContextConfigurer
+
+```csharp
+ 
+    public static void Configure(DbContextOptionsBuilder<ERMDbContext> builder, string connectionString)
+    {
+        //builder.UseSqlServer(connectionString); 
+        builder.UseNpgsql(connectionString);
+    }
+
+    public static void Configure(DbContextOptionsBuilder<ERMDbContext> builder, DbConnection connection)
+    {
+        //    builder.UseSqlServer(connection); 
+        builder.UseNpgsql (connection);
+    }
+ 
+```
 ----
 
 

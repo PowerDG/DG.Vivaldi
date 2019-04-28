@@ -26,9 +26,10 @@ Entity Framework Core .NET Command-line Tools
 `Install-Package Microsoft.EntityFrameworkCore.Tools`
 
 ```
+Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL
 Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
-Install-Package Microsoft.EntityFrameworkCore.Tools
+
 ```
 
 
