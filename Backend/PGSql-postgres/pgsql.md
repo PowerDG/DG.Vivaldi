@@ -10,6 +10,16 @@ Install-Package EntityFramework6.Npgsql -Version 3.1.1
  DgRNCore.Web -> DgRNCore.EntityFrameworkCore -> Npgsql.EntityFrameworkCore.PostgreSQL 2.2.0 -> Microsoft.EntityFrameworkCore 2.2.0 -> Microsoft.Extensions.Logging (>= 2.2.0) 
  DgRNCore.Web -> Microsoft.Extensions.Logging (>= 2.1.1)	DgRNCore.Web	E:\DgHub\BedRock\DgRNCore\3.8.0\src\DgRNCore.Web\DgRNCore.Web.csproj	1	
 
+
+
+
+
+```
+"Default": "User ID=postgres;Password=wsx1001;Host=localhost;Port=5432;Database=DgERM;Pooling=true;"
+```
+
+
+
 ```
 Add-Migration Init
 Update-Database
@@ -39,7 +49,9 @@ Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
         //    builder.UseSqlServer(connection); 
         builder.UseNpgsql (connection);
     }
- 
+ ---
+     
+ public DbSet<Product> Products { get; set; }
 ```
 ----
 
