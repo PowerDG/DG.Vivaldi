@@ -42,3 +42,6 @@
 
 ```
 
+严重性	代码	说明	项目	文件	行	禁止显示状态
+警告	CS0108	“DgOrganizationUnit.CodeUnitLength”隐藏继承的成员“OrganizationUnit.CodeUnitLength”。如果是有意隐藏，请使用关键字 new。	DG.ERM.Core	E:\DgHub\Dg.ERM\source\DG.ERMVue\4.6.0\aspnet-core\src\DG.ERM.Core\DgOrganizationUnits\DgOrganizationUnit.cs	30	活动的
+
