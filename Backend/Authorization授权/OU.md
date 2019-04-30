@@ -12,6 +12,18 @@
 **Update-Database**
 
 
+
+
+
+组织	人员	角色	权限
+
+
+
+
+
+
+
+
 ```csharp
  public class DgOrganizationUnit : Entity<int>
     {
