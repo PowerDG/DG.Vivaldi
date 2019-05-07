@@ -66,6 +66,15 @@ namespace Dg.ERM.OrganizationUnits
             var organizationUnit = _entityRepository.FirstOrDefault(ouId);
             await _userManager.GetUsersInOrganizationUnit(organizationUnit, includeChildren);
         }
+
+        //public virtual async Task GetUsersOrganizationUnitAsync(long userid)
+        //{
+
+        //    var organizationUnit = _entityRepository.GetAll()
+        //        .Where(t=>t.)
+        //    //var organizationUnit = _entityRepository.FirstOrDefault(ouId);
+        //    //await _userManager.GetUsersInOrganizationUnit(organizationUnit, includeChildren);
+        //}
         #endregion
 
 
