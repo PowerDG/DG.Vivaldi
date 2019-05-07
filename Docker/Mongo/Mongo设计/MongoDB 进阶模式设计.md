@@ -110,7 +110,7 @@
 
 ![MongoDB 模式设计进阶案例_页面_22](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_22-1024x786.png)
 
-![MongoDB 模式设计进阶案例_页面_23](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_23-1024x786.png)
+![MongoDB 模式设计进阶案例_页面_23](assets/MongoDB-模式设计进阶案例_页面_23-1024x786.png)
 
 下面这个例子，首先是mandy在发消息的时候会写（push）到我的墙上（timeline）来。如果mandy有50个关注者，那么这个写就会有50次，每个关注者一次。
 
@@ -120,7 +120,7 @@
 
 好了，最后我们来看一下物联网的应用场景：
 
-![MongoDB 模式设计进阶案例_页面_25](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_25-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_25](assets/MongoDB-模式设计进阶案例_页面_25-1024x791.png)
 
 各位还有多少人仍然记得MH370，去年在印度洋消失的客机？在该事故之后，许多人都在疑惑：在当今的技术水平下，为什么我们不能跟踪如此庞大的一个东西？
 
@@ -139,35 +139,35 @@
 1. 容易造成空白浪费，不是每一条记录都包含所有字段值
 2. 可能会经常需要改数据库模式。对于海量数据，改一次模式代价巨大。
 
-![MongoDB 模式设计进阶案例_页面_29](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_29-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_29](assets/MongoDB-模式设计进阶案例_页面_29-1024x791.png)
 
 另一种改良方案是用EAV 设计模式。就是采用一个主表和一个属性值表。在属性值表里存放所有的参数键值对。这样做的好处自然是灵活性：增加新的参数时无需修改模式。但是问题同样存在：用来存储值的那列`METRIC_VALUE`的字节大小必须定义成所有值的最大值 才可以放下所有的参数值。这个可能带来空间浪费，但是更严重的问题是：将不太可能在此字段上建索引，进而影响一些场景的使用。
 
-![MongoDB 模式设计进阶案例_页面_30](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_30-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_30](assets/MongoDB-模式设计进阶案例_页面_30-1024x791.png)
 
 下面我们来看看文档模型怎么做： 这里对于location 、speed  等不同数据类型的字段，在文档模型下可以直接支持。下面的两个文档，第一个文档和第二个文档可以同属一个集合，但是可以有完全不同的字段。  MongoDB对异构数据的支持在这样的场景下有得天独厚的优势。如果我们希望对某一个metric如location建立索引，我们也可以使用mongoDB的稀疏索引  (Sparse  Index)仅对有location字段的文档建索引，在不造成索引空间浪费的前提下提高检索效率。当需要增加新的字段的时候，也不需要对模式做任何修改，可以直接就在应用中的JSON模型里添加需要的字段（elevation)。
 
-![MongoDB 模式设计进阶案例_页面_31](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_31-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_31](assets/MongoDB-模式设计进阶案例_页面_31-1024x791.png)
 
 在IOT这个场景里，我们可以使用一个叫做分桶的设计方式来进行几十倍的性能增长。具体来说就是把采集的数据按小时为一个桶，把每小时的数据聚合到一个文档里。如下面所示，每分钟的值用子文档的一个字段来表示。这样做的好处就是大量减少文档的数量，相应的索引数量也会减少，总体写入IO将会大幅度降低并得到性能提升。
 
-![MongoDB 模式设计进阶案例_页面_32](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_32-1024x786.png)
+![MongoDB 模式设计进阶案例_页面_32](assets/MongoDB-模式设计进阶案例_页面_32-1024x786.png)
 
  
 
 使用这种方式我们还可以把一些统计需要的数值，如每小时的平均值预先就作为一个字段存进去，需要的时候不用现场计算，只要从文档里读出来即可。
 
-![MongoDB 模式设计进阶案例_页面_33](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_33-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_33](assets/MongoDB-模式设计进阶案例_页面_33-1024x791.png)
 
-![MongoDB 模式设计进阶案例_页面_34](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_34-1024x791.png)
+![MongoDB 模式设计进阶案例_页面_34](assets/MongoDB-模式设计进阶案例_页面_34-1024x791.png)
 
 小结一下，冗余、扇出写、分桶，这些都是mongodb 的一些常用优化手段。 大家可以看到，通过减少额外查询或者关联的需求，通过使用冗余、额外存储的非常规方式，我们希望做到的是性能上的最高提升。
 
-![MongoDB 模式设计进阶案例_页面_35](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_35.png)
+![MongoDB 模式设计进阶案例_页面_35](assets/MongoDB-模式设计进阶案例_页面_35.png)
 
 MongoDB 中国团队正在扩张中。希望和一流的、创新的数据库团队一起工作吗？加入我们吧，我们在寻找有开发架构或者数据库相关经验的大牛们加入我们的技术顾问阵营。有兴趣？加微信 tjtang826 私聊吧！
 
-![MongoDB 模式设计进阶案例_页面_36](http://www.mongoing.com/wp-content/uploads/2016/01/MongoDB-模式设计进阶案例_页面_36-1024x786.png)
+![MongoDB 模式设计进阶案例_页面_36](assets/MongoDB-模式设计进阶案例_页面_36-1024x786.png)
 
  		![img](http://gravatar.duoshuo.com/avatar/81613bdb573a4aeef9926140f6d3ec05?s=74&d=wavatar&r=G)	
 
