@@ -14,7 +14,9 @@ using Dg.ERM.Authorization.Roles;
 using System.Threading.Tasks;
 
  
-using System.Linq; 
+using System.Linq;
+using Dg.ERM.OrganizationUnits;
+
 namespace Dg.ERM.Authorization.Users
 {
     public class UserManager : AbpUserManager<Role, User>
@@ -23,6 +25,10 @@ namespace Dg.ERM.Authorization.Users
 
         private readonly IRepository<OrganizationUnit, long> _organizationUnitRepository;
         private readonly IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
+
+
+        protected UserOrganizationUnitDgManager<Role, User> _entityManager { get; set; }
+
         public UserManager(
             RoleManager roleManager,
             UserStore store, 
@@ -76,6 +82,8 @@ namespace Dg.ERM.Authorization.Users
             return Task.FromResult(query.ToList());
         }
 
+
+    
 
         //[UnitOfWork]
         //public virtual Task<List<TUser>> GetUsersInOrganizationUnit(OrganizationUnit organizationUnit, bool includeChildren = false)
