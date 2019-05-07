@@ -1,4 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
+AutoMapper.AutoMapperConfigurationException
+  HResult=0x80131500
+  Source=AutoMapper
+  StackTrace:
+   在 AutoMapper.ConfigurationValidator.AssertConfigurationIsValid(IEnumerable`1 typeMaps)
+   在 AutoMapper.MapperConfiguration.AssertConfigurationIsValid(TypeMap typeMap)
+   在 AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   在 AutoMapper.Mapper.Map[TDestination](Object source)
+   在 Dg.ERM.Users.UserAppService.SetUserInfo(ExtendInfoDto input) 在 E:\DgHub\DG.Vivaldi\aspnet-core\src\Dg.ERM.Application\Users\UserAppService.cs 中: 第 244 行
+   在 Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   在 Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   在 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+
+
+
+
+
+
+
+
+AutoMapper.AutoMapperConfigurationException
+  HResult=0x80131500
+  Source=AutoMapper
+  StackTrace:
+   在 AutoMapper.ConfigurationValidator.AssertConfigurationIsValid(IEnumerable`1 typeMaps)
+   在 AutoMapper.MapperConfiguration.AssertConfigurationIsValid(TypeMap typeMap)
+   在 AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   在 Abp.AutoMapper.AutoMapperObjectMapper.Map[TDestination](Object source)
+   在 Dg.ERM.Users.UserAppService.SetUserInfo(ExtendInfoDto input) 在 E:\DgHub\DG.Vivaldi\aspnet-core\src\Dg.ERM.Application\Users\UserAppService.cs 中: 第 246 行
+   在 Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   在 Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   在 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Domain.Values;
