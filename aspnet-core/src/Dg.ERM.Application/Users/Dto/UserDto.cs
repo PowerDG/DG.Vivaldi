@@ -1,12 +1,13 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization.Users;
 using Abp.AutoMapper;
 using Dg.ERM.Authorization.Users;
 
 namespace Dg.ERM.Users.Dto
-{
+{ 
     [AutoMapFrom(typeof(User))]
     public class UserDto : EntityDto<long>
     {
@@ -36,5 +37,10 @@ namespace Dg.ERM.Users.Dto
         public DateTime CreationTime { get; set; }
 
         public string[] RoleNames { get; set; }
+
+        //public static implicit operator UserDto(Task<User> v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
