@@ -7,16 +7,24 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Entities;
 using Abp.Domain.Repositories;
+using Abp.Domain.Uow;
 using Abp.Extensions;
 using Abp.IdentityFramework;
 using Abp.Linq.Extensions;
 using Abp.Localization;
+using Abp.Organizations;
 using Abp.Runtime.Session;
 using Abp.UI;
+using AutoMapper;
 using Dg.ERM.Authorization;
 using Dg.ERM.Authorization.Accounts;
+using Dg.ERM.Authorization.ExtendInfos;
+using Dg.ERM.Authorization.ExtendInfos.DomainService;
+using Dg.ERM.Authorization.ExtendInfos.Dtos;
+using Dg.ERM.Authorization.ExtendInfos.ExDtos;
 using Dg.ERM.Authorization.Roles;
 using Dg.ERM.Authorization.Users;
+using Dg.ERM.OrganizationUnits;
 using Dg.ERM.Roles.Dto;
 using Dg.ERM.Users.Dto;
 using Microsoft.AspNetCore.Identity;
@@ -33,6 +41,11 @@ namespace Dg.ERM.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+        private readonly ExtendInfoManager _extendInfoManager;
+
+
+        //protected UserOrganizationUnitDgManager<TRole, TUser> _OUDgManager { get; set; }
+        IRepository<ExtendInfo, long> _extendRepository;
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -41,7 +54,10 @@ namespace Dg.ERM.Users
             IRepository<Role> roleRepository,
             IPasswordHasher<User> passwordHasher,
             IAbpSession abpSession,
-            LogInManager logInManager)
+            LogInManager logInManager,
+
+        IRepository<ExtendInfo, long> extendRepository,
+        ExtendInfoManager extendInfoManager)
             : base(repository)
         {
             _userManager = userManager;
@@ -50,6 +66,8 @@ namespace Dg.ERM.Users
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
+            _extendInfoManager = extendInfoManager;
+            _extendRepository=extendRepository;
         }
 
         public override async Task<UserDto> Create(CreateUserDto input)
@@ -218,7 +236,197 @@ namespace Dg.ERM.Users
 
             return true;
         }
+        string  EntityTypeName = "TUser";
 
+
+        [UnitOfWork]
+        public List<ExtendInfoDto> SetUserInfo2(ExtendInfoEditDto input)
+        {
+            var entity = Mapper.Map<ExtendInfo>(input);
+            var userID = entity.EnityID;
+             
+            //var extendInfo = _extendRepository.BindToInfo(entity, EntityTypeName, userID); 
+            entity.EntityTypeFullName = EntityTypeName;
+            entity.Id = null;
+            if (entity != null)
+            {
+                //_entityRepository.Insert(entity);
+
+                var extendInfo = _extendRepository.InsertAndGetId(entity);
+
+                CurrentUnitOfWork.SaveChanges();
+
+                var extendInfos = _extendInfoManager.GetAllInfo() 
+                    .Where(t => t.EnityID == userID && 
+                    t.EntityTypeFullName == EntityTypeName);
+
+                return Mapper.Map<List<ExtendInfoDto>>(extendInfos).ToList();
+                //return AutoMapper.Mapper.Map<ExtendInfoEditDto>(input);
+            }
+            return null;
+        }
+
+
+
+
+        public   async Task<UserDto> Update2(UserDto input)
+        {
+            CheckUpdatePermission();
+
+            var user = await _userManager.GetUserByIdAsync(input.Id);
+
+            MapToEntity(input, user);
+
+            CheckErrors(await _userManager.UpdateAsync(user));
+
+            if (input.RoleNames != null)
+            {
+                CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
+            }
+
+            return await Get(input);
+        }
+
+
+        [UnitOfWork]
+        public async Task<UserInfoForEditOutput> SetUserInfo3(ExtendInfoEditDto input)
+        {
+
+
+            var user6 = await _userManager.GetUserByIdAsync(input.EnityID);
+
+            //MapToEntity(input, user);
+
+            //CheckErrors(await _userManager.UpdateAsync(user));
+
+            //if (input.RoleNames != null)
+            //{
+            //    CheckErrors(await _userManager.SetRoles(user, input.RoleNames));
+            //} 
+            var entity = Mapper.Map<ExtendInfo>(input);
+            var userID = entity.EnityID; 
+            #region MyRegion 
+            //var extendInfo = _extendRepository.BindToInfo(entity, EntityTypeName, userID); 
+            entity.EntityTypeFullName = EntityTypeName;
+            entity.Id = null;
+            if (entity != null)
+            {  
+                var extendInfo = _extendInfoManager.InsertToInfo(entity); 
+                CurrentUnitOfWork.SaveChanges(); 
+            }
+            #endregion
+            var user = _userManager.GetUserByIdAsync(userID);
+            var extendInfos = _extendRepository.GetAll()
+                .Where(t => t.EnityID == userID &&
+                t.EntityTypeFullName == EntityTypeName);
+
+
+            var user2 = Repository.GetAllIncluding(x => x.Roles).FirstOrDefaultAsync(x => x.Id == userID);
+
+
+            //var userEditDto = ObjectMapper.Map<UserInfoDto>(user);
+            return  new UserInfoForEditOutput
+            {
+                //User = Mapper.Map<UserDto>(user),
+                User = Mapper.Map<UserInfoDto>(user2),
+                ExtendInfos = Mapper.Map<List<ExtendInfoDto>>(extendInfos).ToList()
+            };
+            //return Task<UserInfoForEditOutput>(a);
+        }
+
+
+        [UnitOfWork]
+        public UserInfoForEditOutput SetUserInfo(ExtendInfoEditDto input )
+        { 
+            var entity = Mapper.Map<ExtendInfo>(input); 
+            var userID = entity.EnityID; 
+            #region 添加Info表信息 
+            //var extendInfo = _extendRepository.BindToInfo(entity, EntityTypeName, userID); 
+            entity.EntityTypeFullName = EntityTypeName; 
+            entity.Id = null;
+            if (entity != null)
+            {
+                //_entityRepository.Insert(entity); 
+                var extendInfo = _extendInfoManager.InsertToInfo(entity);
+               var indexInfo = extendInfo.Id;
+                CurrentUnitOfWork.SaveChanges();
+                //return AutoMapper.Mapper.Map<ExtendInfoEditDto>(input);
+            } 
+            #endregion  
+            //var user = _userManager.GetUserByIdAsync(userID); 
+            var extendInfos = _extendRepository.GetAll() 
+                .Where(t => t.EnityID == userID && 
+                t.EntityTypeFullName == EntityTypeName);
+             
+            var user =   Repository.GetAllIncluding(x => x.Roles).FirstOrDefault(x => x.Id == userID); 
+            //var userEditDto = ObjectMapper.Map<UserInfoDto>(user);
+            return   new UserInfoForEditOutput
+            {  //User = Mapper.Map<UserDto>(user),
+                User= toInfo(user),
+                ExtendInfos = Mapper.Map<List<ExtendInfoDto>>(extendInfos).ToList()
+            };
+        }
+
+        public UserInfoDto toInfo(User user)
+        {
+            return new UserInfoDto(
+                //User.user,
+
+                user.UserName,
+                user.Name,
+                user.Surname,
+                user.EmailAddress,
+                user.IsActive,
+                user.FullName,
+                user.CreationTime
+                );
+        }
+
+        public UserInfoForEditOutput GetUserInfo(long userID)
+        {
+            //var EntityTypeName = "TUser";
+            var extendInfos = _extendInfoManager.GetAllInfo()
+                .Where(t => t.EnityID == userID &&   
+                t.EntityTypeFullName==EntityTypeName);
+
+            var user = Repository.GetAllIncluding(x => x.Roles).FirstOrDefault(x => x.Id == userID);
+            return new UserInfoForEditOutput
+            {
+                //User = Mapper.Map<UserDto>(user),
+                User = toInfo(user),
+                ExtendInfos =Mapper.Map<List<ExtendInfoDto>>(extendInfos).ToList()
+                //ExtendInfos = mextendInfos;
+
+                //Role = roleEditDto,
+                //Permissions = ObjectMapper.Map<List<FlatPermissionDto>>(permissions).OrderBy(p => p.DisplayName).ToList(),
+                //GrantedPermissionNames = grantedPermissions.Select(p => p.Name).ToList()
+
+            };
+        }
+
+
+        //public AddToOrganizationUnitAsync
+        public async Task AddToOrganizationUnitAsync(long userId, long ouId)
+        {
+            await _userManager.AddToOrganizationUnitAsync(userId, ouId);
+        }
+
+        public virtual async Task RemoveFromOrganizationUnitAsync(long userId, long ouId)
+        {
+            await _userManager.RemoveFromOrganizationUnitAsync(userId, ouId);
+        }
+
+
+        public virtual async Task<List<OrganizationUnit>> GetOrganizationUnitsAsync(long userID)
+        {
+
+            return await _userManager.GetOrganizationUnitsAsync(userID);
+
+        }
+        //public virtual async Task GetUsersInOrganizationUnitAsync(long ouId, bool includeChildren = false)
+        //{
+        //    await _userManager.GetUsersInOrganizationUnitAsync(ouId, includeChildren);
+        //}
     }
 }
 
