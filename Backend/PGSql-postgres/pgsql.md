@@ -12,8 +12,6 @@ Install-Package EntityFramework6.Npgsql -Version 3.1.1
 
 
 
-
-
 ```
 "Default": "User ID=postgres;Password=wsx1001;Host=localhost;Port=5432;Database=DgERM;Pooling=true;"
 ```
