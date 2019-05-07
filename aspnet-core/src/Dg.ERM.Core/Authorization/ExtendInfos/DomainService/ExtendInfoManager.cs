@@ -18,7 +18,7 @@ using Abp.Domain.Services;
 
 using Dg.ERM;
 using Dg.ERM.Authorization.ExtendInfos;
-
+using Abp.Domain.Uow;
 
 namespace Dg.ERM.Authorization.ExtendInfos.DomainService
 {
@@ -52,6 +52,14 @@ namespace Dg.ERM.Authorization.ExtendInfos.DomainService
         // TODO:编写领域业务代码
 
 
+        public IList<ExtendInfo>  GetAllInfo( )
+        {
+
+            var extendInfos = _repository.GetAll()
+                .OrderByDescending(t => t.CreationTime);
+            return    AutoMapper.Mapper.Map<List<ExtendInfo>>(extendInfos);
+        }
+
         public ExtendInfo InsertToInfo(ExtendInfo input)
         {
 
@@ -76,17 +84,21 @@ namespace Dg.ERM.Authorization.ExtendInfos.DomainService
         /// <param name="EntityTypeFullName"></param>
         /// <param name="EnityID"></param>
         /// <returns></returns>
-        public ExtendInfo BindToInfo(ExtendInfo input,string EntityTypeFullName, string EnityID)
+        /// 
+        [UnitOfWork]
+        public ExtendInfo BindToInfo(ExtendInfo input,string entityTypeFullName, long enityID)
         {
 
-            //var entity = AutoMapper.Mapper.Map<ExtendInfo>(input);
-            input.Id = null;
-            if (input != null)
+            var entity = AutoMapper.Mapper.Map<ExtendInfo>(input);
+            entity.Id = null;
+            if (entity != null)
             {
-                _repository.Insert(input);
+                entity.EntityTypeFullName = entityTypeFullName;
+                entity.EnityID = enityID;
+                var pid=_repository.InsertAndGetId(entity);
 
                 CurrentUnitOfWork.SaveChanges();
-                return input;// AutoMapper.Mapper.Map<ExtendInfo>(input);
+                return entity;// AutoMapper.Mapper.Map<ExtendInfo>(input);
             }
             else
             {
