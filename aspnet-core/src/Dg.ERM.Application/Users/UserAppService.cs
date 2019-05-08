@@ -239,6 +239,9 @@ namespace Dg.ERM.Users
         string  EntityTypeName = "TUser";
 
 
+
+
+
         [UnitOfWork]
         public List<ExtendInfoDto> SetUserInfo2(ExtendInfoEditDto input)
         {
@@ -335,9 +338,44 @@ namespace Dg.ERM.Users
         }
 
 
+        #region Map User for organizationUnitIds
+        /// <summary>
+        /// user转Dto映射
+        /// 犹豫AutoMapper尚未解决的零时方案
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public UserInfoDto toInfo(User user)
+        {
+            return new UserInfoDto(
+                //User.user,
+
+                user.UserName,
+                user.Name,
+                user.Surname,
+                user.EmailAddress,
+                user.IsActive,
+                user.FullName,
+                user.CreationTime
+                );
+        }
+
+
+        #endregion
+
+
+
+        /// <summary>
+        /// 为用户添加扩展属性
+        /// 并获取用户信息【以及扩展属性】
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         [UnitOfWork]
         public UserInfoForEditOutput SetUserInfo(ExtendInfoEditDto input )
-        { 
+        {
+
+        
             var entity = Mapper.Map<ExtendInfo>(input); 
             var userID = entity.EnityID; 
             #region 添加Info表信息 
@@ -367,21 +405,11 @@ namespace Dg.ERM.Users
             };
         }
 
-        public UserInfoDto toInfo(User user)
-        {
-            return new UserInfoDto(
-                //User.user,
-
-                user.UserName,
-                user.Name,
-                user.Surname,
-                user.EmailAddress,
-                user.IsActive,
-                user.FullName,
-                user.CreationTime
-                );
-        }
-
+        /// <summary> 
+        /// 并获取用户信息【以及扩展属性】
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public UserInfoForEditOutput GetUserInfo(long userID)
         {
             //var EntityTypeName = "TUser";
@@ -406,7 +434,7 @@ namespace Dg.ERM.Users
 
 
         //public AddToOrganizationUnitAsync
-        public async Task AddToOrganizationUnitAsync(long userId, long ouId)
+        public virtual async Task AddToOrganizationUnitAsync(long userId, long ouId)
         {
             await _userManager.AddToOrganizationUnitAsync(userId, ouId);
         }
@@ -416,17 +444,33 @@ namespace Dg.ERM.Users
             await _userManager.RemoveFromOrganizationUnitAsync(userId, ouId);
         }
 
-
+        /// <summary>
+        /// 用户号获取组织信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
         public virtual async Task<List<OrganizationUnit>> GetOrganizationUnitsAsync(long userID)
         {
 
             return await _userManager.GetOrganizationUnitsAsync(userID);
 
         }
-        //public virtual async Task GetUsersInOrganizationUnitAsync(long ouId, bool includeChildren = false)
-        //{
-        //    await _userManager.GetUsersInOrganizationUnitAsync(ouId, includeChildren);
-        //}
+       
+        
+        /// <summary>
+        /// 组织号获取用户信息
+        /// </summary>
+        /// <param name="organizationUnit"></param>
+        /// <param name="includeChildren"></param>
+        /// <returns></returns>
+        [UnitOfWork]
+        public virtual Task<List<User>> GetUsersInOrganizationUnit(OrganizationUnit organizationUnit, bool includeChildren = false)
+        {
+            var users = _userManager.GetUsersInOrganizationUnit(organizationUnit, includeChildren);
+            return users;
+
+        }
+
     }
 }
 
