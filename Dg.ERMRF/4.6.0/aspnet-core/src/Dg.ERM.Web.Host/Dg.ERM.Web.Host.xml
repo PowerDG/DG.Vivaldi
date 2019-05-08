@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dg.ERM.Web.Host</name>
+    </assembly>
+    <members>
+        <member name="M:Dg.ERM.Web.Host.Controllers.HomeController.TestNotification(System.String)">
+            <summary>
+            This is a demo code to demonstrate sending notification to default tenant admin and host admin uers.
+            Don't use this code in production !!!
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

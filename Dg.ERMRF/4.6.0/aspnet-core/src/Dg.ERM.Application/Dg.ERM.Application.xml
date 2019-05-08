@@ -1,0 +1,912 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dg.ERM.Application</name>
+    </assembly>
+    <members>
+        <member name="F:Dg.ERM.AppConsts.DefaultPassPhrase">
+            <summary>
+            Default pass phrase for SimpleStringCipher decrypt/encrypt operations
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.TenantId">
+            <summary>
+            TenantId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.ParentId">
+            <summary>
+            ParentId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.Super_Type">
+            <summary>
+            Super_Type
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.EntityTypeFullName">
+            <summary>
+            EntityTypeFullName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.DataTypeName">
+            <summary>
+            DataTypeName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto.DisplayName">
+            <summary>
+            DisplayName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.TenantId">
+            <summary>
+            TenantId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.ParentId">
+            <summary>
+            ParentId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.Super_Type">
+            <summary>
+            Super_Type
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.EntityTypeFullName">
+            <summary>
+            EntityTypeFullName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.DataTypeName">
+            <summary>
+            DataTypeName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.DisplayName">
+            <summary>
+            DisplayName
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.CreatorUserId">
+            <summary>
+            CreatorUserId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.CreationTime">
+            <summary>
+            CreationTime
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoListDto.IsDeleted">
+            <summary>
+            IsDeleted
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.Dtos.GetExtendInfosInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService">
+             <summary>
+             ExtendInfo应用层服务的接口实现方法  
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.#ctor(Abp.Domain.Repositories.IRepository{Dg.ERM.Authorization.ExtendInfos.ExtendInfo,System.Int64})">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.GetPaged(Dg.ERM.Authorization.ExtendInfos.Dtos.GetExtendInfosInput)">
+             <summary>
+             获取ExtendInfo的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            通过指定id获取ExtendInfoListDto信息
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int64})">
+            <summary>
+            获取编辑 ExtendInfo
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.CreateOrUpdate(Dg.ERM.Authorization.ExtendInfos.Dtos.CreateOrUpdateExtendInfoInput)">
+            <summary>
+            添加或者修改ExtendInfo的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.InsertToInfo(Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto)">
+            <summary>
+            新增ExtendInfo
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.Update(Dg.ERM.Authorization.ExtendInfos.Dtos.ExtendInfoEditDto)">
+            <summary>
+            编辑ExtendInfo
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            删除ExtendInfo信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.ExtendInfoAppService.BatchDelete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            批量删除ExtendInfo的方法
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService">
+             <summary>
+             ExtendInfo应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.GetPaged(Dg.ERM.Authorization.ExtendInfos.Dtos.GetExtendInfosInput)">
+             <summary>
+             获取ExtendInfo的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            通过指定id获取ExtendInfoListDto信息
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int64})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.CreateOrUpdate(Dg.ERM.Authorization.ExtendInfos.Dtos.CreateOrUpdateExtendInfoInput)">
+            <summary>
+            添加或者修改ExtendInfo的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            删除ExtendInfo信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Authorization.ExtendInfos.IExtendInfoAppService.BatchDelete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            批量删除ExtendInfo
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Authorization.ExtendInfos.Mapper.ExtendInfoMapper">
+            <summary>
+            配置ExtendInfo的AutoMapper
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Contents.DgCategoryAppService">
+             <summary>
+             DgCategory应用层服务的接口实现方法  
+            </summary>///
+             
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.#ctor(Abp.Domain.Repositories.IRepository{Dg.ERM.Contents.DgCategory,System.Int64},Dg.ERM.Contents.DomainService.IDgCategoryManager)">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.CreateMissionQ(Dg.ERM.Contents.Dtos.DgCategoryEditDto)">
+            <summary>
+            /InsertOrUpdateAndGetId
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.GetPaged(Dg.ERM.Contents.Dtos.GetDgCategorysInput)">
+             <summary>
+             获取DgCategory的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            通过指定id获取DgCategoryListDto信息
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int64})">
+            <summary>
+            获取编辑 DgCategory
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.CreateOrUpdate(Dg.ERM.Contents.Dtos.CreateOrUpdateDgCategoryInput)">
+            <summary>
+            添加或者修改DgCategory的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.Create(Dg.ERM.Contents.Dtos.DgCategoryEditDto)">
+            <summary>
+            新增DgCategory
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.Update(Dg.ERM.Contents.Dtos.DgCategoryEditDto)">
+            <summary>
+            编辑DgCategory
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            删除DgCategory信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.DgCategoryAppService.BatchDelete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            批量删除DgCategory的方法
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.ParentId">
+            <summary>
+            ParentId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.Content">
+            <summary>
+            Content
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryEditDto.SortOrder">
+            <summary>
+            SortOrder
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.ParentId">
+            <summary>
+            ParentId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.Image">
+            <summary>
+            Image
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.Content">
+            <summary>
+            Content
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.SortOrder">
+            <summary>
+            SortOrder
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.CreationTime">
+            <summary>
+            CreationTime
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.LastModificationTime">
+            <summary>
+            LastModificationTime
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.DeletionTime">
+            <summary>
+            DeletionTime
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.CreatorUserId">
+            <summary>
+            CreatorUserId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.LastModifierUserId">
+            <summary>
+            LastModifierUserId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.DeleterUserId">
+            <summary>
+            DeleterUserId
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.IsDeleted">
+            <summary>
+            IsDeleted
+            </summary>
+        </member>
+        <member name="P:Dg.ERM.Contents.Dtos.DgCategoryListDto.TenantId">
+            <summary>
+            TenantId
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.Dtos.GetDgCategorysInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Contents.IDgCategoryAppService">
+             <summary>
+             DgCategory应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.GetPaged(Dg.ERM.Contents.Dtos.GetDgCategorysInput)">
+             <summary>
+             获取DgCategory的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            通过指定id获取DgCategoryListDto信息
+            </summary>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int64})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.CreateOrUpdate(Dg.ERM.Contents.Dtos.CreateOrUpdateDgCategoryInput)">
+            <summary>
+            添加或者修改DgCategory的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+            删除DgCategory信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dg.ERM.Contents.IDgCategoryAppService.BatchDelete(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            批量删除DgCategory
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Contents.Mapper.DgCategoryMapper">
+            <summary>
+            配置DgCategory的AutoMapper
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.ERMAppServiceBase">
+            <summary>
+            Derive your application services from this class.
+            </summary>
+        </member>
+        <member name="T:Dg.ERM.Net.MimeTypes.MimeTypeNames">
+            <summary>
+            Common mime types. 
+            </summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXJavascript">
+            <summary>Used to denote the encoding necessary for files containing JavaScript source code. The alternative MIME type for this file type is text/javascript.</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioL24">
+            <summary>24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXShockwaveFlash">
+            <summary>Adobe Flash files for example with the extension .swf</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationOctetStream">
+            <summary>Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application. Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files. In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather, should omit the type in order to allow the recipient to guess the type.[6]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationAtomXml">
+            <summary>Atom feeds</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextCss">
+            <summary>Cascading Style Sheets; Defined in RFC 2318</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextCmd">
+            <summary>commands; subtype resident in Gecko browsers like Firefox 3.5</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextCsv">
+            <summary>Comma-separated values; Defined in RFC 4180</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXDeb">
+            <summary>deb (file format), a software package format used by the Debian project</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartEncrypted">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartSigned">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MessageHttp">
+            <summary>Defined in RFC 2616</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelExample">
+            <summary>Defined in RFC 4735</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXDvi">
+            <summary>device-independent document in DVI format</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXmlDtd">
+            <summary>DTD files; Defined by RFC 3023</summary>
+        </member>
+        <!-- 对于成员“F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationJavascript”忽略有格式错误的 XML 注释 -->
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationEcmascript">
+            <summary>ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationEdifact">
+            <summary>EDI EDIFACT data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationEdiX12">
+            <summary>EDI X12 data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MessagePartial">
+            <summary>Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MessageRfc822">
+            <summary>Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoXFlv">
+            <summary>Flash video (FLV files)</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImageGif">
+            <summary>GIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextXGwtRpc">
+            <summary>GoogleWebToolkit data</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXGzip">
+            <summary>Gzip</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextHtml">
+            <summary>HTML; Defined in RFC 2854</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImageVndMicrosoftIcon">
+            <summary>ICO image; Registered[9]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelIges">
+            <summary>IGS files, IGES files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MessageImdnXml">
+            <summary>IMDN Instant Message Disposition Notification; Defined in RFC 5438</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationJson">
+            <summary>JavaScript Object Notation JSON; Defined in RFC 4627</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationJsonPatch">
+            <summary>JavaScript Object Notation (JSON) Patch; Defined in RFC 6902</summary>
+        </member>
+        <!-- 对于成员“F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextJavascript”忽略有格式错误的 XML 注释 -->
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImagePjpeg">
+            <summary>JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v=vs.85) - Progressive JPEG, initiated before global browser support for progressive JPEGs (Microsoft and Firefox).</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImageJpeg">
+            <summary>JPEG JFIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextXJqueryTmpl">
+            <summary>jQuery template data</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndGoogleEarthKmlXml">
+            <summary>KML files (e.g. for Google Earth)</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXLatex">
+            <summary>LaTeX files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoXMatroska">
+            <summary>Matroska open media format</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet">
+            <summary>Microsoft Excel 2007 files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndMsExcel">
+            <summary>Microsoft Excel files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation">
+            <summary>Microsoft Powerpoint 2007 files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndMsPowerpoint">
+            <summary>Microsoft Powerpoint files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument">
+            <summary>Microsoft Word 2007 files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationMsword">
+            <summary>Microsoft Word files[15]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartAlternative">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartMixed">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartRelated">
+            <summary>MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.MultipartFormData">
+            <summary>MIME Webform; Defined in RFC 2388</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndMozillaXulXml">
+            <summary>Mozilla XUL files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioMpeg">
+            <summary>MP3 or other MPEG audio; Defined in RFC 3003</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioMp4">
+            <summary>MP4 audio</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoMp4">
+            <summary>MP4 video; Defined in RFC 4337</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoMpeg">
+            <summary>MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelMesh">
+            <summary>MSH files, MESH files; Defined in RFC 2077, SILO files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioBasic">
+            <summary>mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoOgg">
+            <summary>Ogg Theora or other video (with audio); Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioOgg">
+            <summary>Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationOgg">
+            <summary>Ogg, a multimedia bitstream container format; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXopXml">
+            <summary>OP</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentGraphics">
+            <summary>OpenDocument Graphics; Registered[14]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentPresentation">
+            <summary>OpenDocument Presentation; Registered[13]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentSpreadsheet">
+            <summary>OpenDocument Spreadsheet; Registered[12]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentText">
+            <summary>OpenDocument Text; Registered[11]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs12">
+            <summary>p12 files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certificates">
+            <summary>p7b and spc files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Mime">
+            <summary>p7c files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certreqresp">
+            <summary>p7r files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Signature">
+            <summary>p7s files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationPdf">
+            <summary>Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImagePng">
+            <summary>Portable Network Graphics; Registered,[8] Defined in RFC 2083</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationPostscript">
+            <summary>PostScript; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoQuicktime">
+            <summary>QuickTime video; Registered[10]</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXRarCompressed">
+            <summary>RAR archive files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioVndRnRealaudio">
+            <summary>RealAudio; Documented in RealPlayer Customer Support Answer 2559</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationRdfXml">
+            <summary>Resource Description Framework; Defined by RFC 3870</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationRssXml">
+            <summary>RSS feeds</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationSoapXml">
+            <summary>SOAP; Defined by RFC 3902</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXStuffit">
+            <summary>StuffIt archive files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImageSvgXml">
+            <summary>SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ImageTiff">
+            <summary>Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXTar">
+            <summary>Tarball files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextPlain">
+            <summary>Textual data; Defined in RFC 2046 and RFC 3676</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXFontTtf">
+            <summary>TrueType Font No registered MIME type, but this is the most commonly used</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.TextVcard">
+            <summary>vCard (contact information); Defined in RFC 6350</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioVorbis">
+            <summary>Vorbis encoded audio; Defined in RFC 5215</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioVndWave">
+            <summary>WAV audio; Defined in RFC 2361</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationFontWoff">
+            <summary>Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoWebm">
+            <summary>WebM Matroska-based open media format</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioWebm">
+            <summary>WebM open media format</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioXMsWax">
+            <summary>Windows Media Audio Redirector; Documented in Microsoft help page</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.AudioXMsWma">
+            <summary>Windows Media Audio; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.VideoXMsWmv">
+            <summary>Windows Media Video; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelVrml">
+            <summary>WRL files, VRML files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelX3DXml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3D XML files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelX3DBinary">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DB binary files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ModelX3DVrml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DV VRML files</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationXhtmlXml">
+            <summary>XHTML; Defined by RFC 3236</summary>
+        </member>
+        <member name="F:Dg.ERM.Net.MimeTypes.MimeTypeNames.ApplicationZip">
+            <summary>ZIP archive files; Registered[7]</summary>
+        </member>
+        <member name="M:DG.ERM.Products.Dtos.GetProductsInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductEditDto.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductEditDto.TenantId">
+            <summary>
+            TenantId
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductEditDto.OrganizationUnitId">
+            <summary>
+            OrganizationUnitId
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductEditDto.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductEditDto.Price">
+            <summary>
+            Price
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductListDto.TenantId">
+            <summary>
+            TenantId
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductListDto.OrganizationUnitId">
+            <summary>
+            OrganizationUnitId
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductListDto.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductListDto.Price">
+            <summary>
+            Price
+            </summary>
+        </member>
+        <member name="P:DG.ERM.Products.Dtos.ProductListDto.IsDeleted">
+            <summary>
+            IsDeleted
+            </summary>
+        </member>
+        <member name="T:DG.ERM.Products.IProductAppService">
+             <summary>
+             Product应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.GetPaged(DG.ERM.Products.Dtos.GetProductsInput)">
+             <summary>
+             获取Product的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取ProductListDto信息
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            返回实体的EditDto
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.CreateOrUpdate(DG.ERM.Products.Dtos.CreateOrUpdateProductInput)">
+            <summary>
+            添加或者修改Product的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除Product信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.IProductAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除Product
+            </summary>
+        </member>
+        <member name="T:DG.ERM.Products.Mapper.ProductMapper">
+            <summary>
+            配置Product的AutoMapper
+            </summary>
+        </member>
+        <member name="T:DG.ERM.Products.ProductAppService">
+             <summary>
+             Product应用层服务的接口实现方法  
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.#ctor(Abp.Domain.Repositories.IRepository{DG.ERM.Products.Product,System.Int32},DG.ERM.Products.DomainService.IProductManager)">
+             <summary>
+             构造函数 
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.GetPaged(DG.ERM.Products.Dtos.GetProductsInput)">
+             <summary>
+             获取Product的分页列表信息
+            </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.GetById(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取ProductListDto信息
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.GetForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            获取编辑 Product
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.CreateOrUpdate(DG.ERM.Products.Dtos.CreateOrUpdateProductInput)">
+            <summary>
+            添加或者修改Product的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.Create(DG.ERM.Products.Dtos.ProductEditDto)">
+            <summary>
+            新增Product
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.Update(DG.ERM.Products.Dtos.ProductEditDto)">
+            <summary>
+            编辑Product
+            </summary>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.Delete(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除Product信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DG.ERM.Products.ProductAppService.BatchDelete(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除Product的方法
+            </summary>
+        </member>
+    </members>
+</doc>
