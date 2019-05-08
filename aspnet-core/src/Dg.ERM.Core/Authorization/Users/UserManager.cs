@@ -25,7 +25,9 @@ namespace Dg.ERM.Authorization.Users
 
         private readonly IRepository<OrganizationUnit, long> _organizationUnitRepository;
         private readonly IRepository<UserOrganizationUnit, long> _userOrganizationUnitRepository;
-
+        /// <summary>
+        /// UserOrganizationUnitDgManagerr【人员-组织】
+        /// </summary>
 
         protected UserOrganizationUnitDgManager<Role, User> _entityManager { get; set; }
 
