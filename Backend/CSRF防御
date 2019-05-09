@@ -1,0 +1,17 @@
+http://www.cnblogs.com/skabyy/p/7295533.html
+
+
+
+POST接口可以用Postman工具来访问：
+
+<http://images2017.cnblogs.com/blog/576869/201709/576869-20170902005602530-475336174.png>
+
+大功告成！
+
+**你访问API的时候可能会出现"Empty or invalid anti forgery header token"的错误，这是因为某些ABP版本默认开启了CSRF防御。在MyTweetWebModule的PreInitialize方法加上下面这行代码关闭CSRF防御就可以了。**
+
+作者：慕前端25690
+
+链接：https://www.imooc.com/article/21152?open_source=weibo_search
+
+来源：慕课网
