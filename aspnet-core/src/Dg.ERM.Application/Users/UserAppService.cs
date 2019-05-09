@@ -296,7 +296,7 @@ namespace Dg.ERM.Users
         {
 
 
-            var user6 = await _userManager.GetUserByIdAsync(input.EnityID);
+            var user6 = await _userManager.GetUserByIdAsync(input.id);
 
             //MapToEntity(input, user);
 
