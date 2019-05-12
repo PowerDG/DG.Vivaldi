@@ -53,6 +53,19 @@ Install-Package Npgsql.EntityFrameworkCore.PostgreSQL.Design
 
 
 
+
+
+````
+
+
+
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误	CS1705	标识为“Fonour.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null”的程序集“Fonour.EntityFrameworkCore”所使用的“Microsoft.EntityFrameworkCore, Version=2.2.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60”版本高于所引用的标识为“Microsoft.EntityFrameworkCore, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60”的程序集“Microsoft.EntityFrameworkCore”	Fonour.Host	E:\DgProject\DDDgPractice\Dg.ERM\Trump.Dg\Trump\Fonour.Host\CSC	1	活动的
+
+````
+
+
+
 首先下载安装包
 
     Microsoft.EntityFrameworkCore：核心包，不多说
