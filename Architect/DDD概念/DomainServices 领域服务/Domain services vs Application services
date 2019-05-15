@@ -1,0 +1,253 @@
+# Domain services vs Application services
+
+
+
+https://enterprisecraftsmanship.com/2016/09/08/domain-services-vs-application-services/
+
+Follow @vkhorikov
+
+In this post, we’ll take a look at domain services: what differs  them from application services and when it is preferable to use one in  addition to an application service.
+
+
+
+## Domain services vs Application services
+
+It is often said that domain services carry domain knowledge that  doesn’t naturally fit entities and value objects. There’s another  reason, however, why you may want to introduce a domain service. That  reason is related to domain model isolation. More on that in just a  minute.
+
+So, what differs domain services from application services? Both  these concepts assume stateless classes which can work on top of domain  entities and value objects, but that’s pretty much as far as their  similarities go. The main difference between them is that **domain services hold domain logic whereas application services don’t**.
+
+As we discussed in a [previous post](http://enterprisecraftsmanship.com/2016/08/25/what-is-domain-logic/),  domain logic is everything that is related to business decisions.  Domain services, therefore, participate in the decision-making process  the same way entities and value objects do. And application services  orchestrate those decisions the same way they orchestrate decisions made  by entities and value objects.
+
+Let’s take this example:
+
+public void WithdrawMoney(decimal amount)
+
+{
+
+​    _atm.DispenseMoney(amount);
+
+​    decimal amountWithCommission = _atm.CalculateAmountWithCommission(amount);
+
+ 
+
+​    _paymentGateway.ChargePayment(amountWithCommission);
+
+​    _repository.Save(_atm);
+
+}
+
+The *WithdrawMoney* method is part of an application service  and comprises a customer-facing API. It tells an ATM entity to dispense  some amount of money first, then asks it to calculate the amount of  money with a commission, uses the calculation result to charge the  payment through a payment gateway and finally saves the entity to the  database.
+
+Does this application service look good or should we extract some code out of it into a domain service? Let’s see.
+
+In the first two lines, the method uses the Atm domain entity to make  some business decisions. With the last two lines, it transforms those  decisions into visible side effects. It calls the payment gateway and  modifies the state of the database.
+
+The first two lines here are about delegating the decision-making  process to the domain model. But isn’t the sole act of knowing which two  lines of code to use a domain knowledge in itself? Shouldn’t we extract  it into a domain service? For example, like this:
+
+public void WithdrawMoney(decimal amount)
+
+{
+
+​    decimal amountWithCommission = _atmService.DispenseAndCalculateCommission(
+
+​        _atm, amount);
+
+ 
+
+​    _paymentGateway.ChargePayment(amountWithCommission);
+
+​    _repository.Save(_atm);
+
+}
+
+public sealed class AtmService // Domain service
+
+{
+
+​    public decimal DispenseAndCalculateCommission(Atm atm, decimal amount)
+
+​    {
+
+​        atm.DispenseMoney(amount);
+
+​        return atm.CalculateAmountWithCommission(amount);
+
+​    }
+
+}
+
+Not really. The mere fact of using more than one line of code that is  somehow related to the domain model doesn’t constitute a domain  knowledge. What matters is whether or not those lines of code are  responsible for making business decisions.
+
+In the sample above, the *DispenseAndCalculateCommission*  method has a cyclomatic complexity of 1. There are no branches (“if”  statements) that signalize the code makes any decisions whatsoever, it  just asks the domain entity to do two separate things.
+
+The order in which these two methods are called doesn’t matter  either. If we were to re-arrange them and put the commission calculation  query above the dispense money command, nothing would change in terms  of the Atm’s invariants, it would still remain valid. It’s a strong sign  there are no leaking [implementation details](http://enterprisecraftsmanship.com/2016/07/27/what-is-an-implementation-detail/) either.
+
+Now, let’s change the code sample a little bit and say that there’s also a validation involved:
+
+public void WithdrawMoney(decimal amount)
+
+{
+
+​    if (!_atm.CanDispenseMoney(amount))
+
+​        return;
+
+ 
+
+​    _atm.DispenseMoney(amount);
+
+​    decimal amountWithCommission = _atm.CalculateAmountWithCommission(amount);
+
+ 
+
+​    _paymentGateway.ChargePayment(amountWithCommission);
+
+​    _repository.Save(_atm);
+
+}
+
+The cyclomatic complexity in this example is higher than one because  we now have an “if” statement. Doesn’t it mean the application service  now contains domain knowledge?
+
+Also, no. The actual decision-making process still resides in Atm.  The entity and entity alone decides whether it can dispense any money.  The application service just orchestrates that decision and either  continues the execution or not.
+
+As long as the *DispenseMoney* method in Atm has a pre-condition stating that *CanDispenseMoney*  must hold true prior to dispensing cash, all invariants stay protected.  The precondition itself can be implemented as simple as this:
+
+public void DispenseMoney(decimal amount)
+
+{
+
+​    if (!CanDispenseMoney(amount))
+
+​        throw new InvalidOperationException();
+
+ 
+
+​    /* … */
+
+}
+
+So, even if the application service ignores the decision made by *CanDispenseMoney*, the Atm entity will not enter an inconsistent state. It will throw an exception thus adhering to the [fail fast principle](http://enterprisecraftsmanship.com/2015/09/15/fail-fast-principle/).
+
+## When to extract a domain service?
+
+The application service in the sample above doesn’t make any business  decisions, it delegates those decision to the domain model. Note that  the domain model is isolated: the Atm entity doesn’t save itself to the  database and doesn’t directly charge payments through the payment  gateway. We have a nice separation of concerns here: business logic is  attributed to the domain model, while interactions with the external  world – to the application service.
+
+You can notice a pattern in most code bases that adhere to such a guideline. Their execution flow goes as follows:
+
+- Prepare all information needed for a business operation: load  participating entities from the database and retrieve any required data  from other external sources.
+- Execute the operation. The operation consists of one or more  business decisions made by the domain model. Those decisions result in  either changing the model’s state, generating some artifacts (*amountWithCommission* value in the sample above), or both.
+- Apply the results of the operation to the outside world.
+
+Only the 1st and the 3rd steps involve the work with external  dependencies. The 2nd step is closed under the data retrieved in the  first step. The arguments it accepts and the output it generates consist  of entities, value objects, and primitive types only.
+
+Note that in simple CRUD applications, there’s no 2nd step because  there are no decisions to make. In this case, all operations can be  performed solely by application services, no need to delegate them to a  domain model. In fact, there can be no rich domain model whatsoever. An  anemic domain model would work just fine in such situations.
+
+Now, let’s modify our code sample to a more realistic scenario. Let’s  assume that the payment charge can fail due to insufficient balance and  that we shouldn’t dispense any cash if that happens.
+
+This is where the nice separation of concerns I described above  starts to break apart. The decision process now depends on information  unavailable by the time we start that decision process. Here’s the code:
+
+public void WithdrawMoney(decimal amount)
+
+{
+
+​    if (!_atm.CanDispenseMoney(amount))
+
+​        return;
+
+ 
+
+​    decimal amountWithCommission = _atm.CalculateAmountWithCommission(amount);
+
+​    Result result = _paymentGateway.ChargePayment(amountWithCommission);
+
+ 
+
+​    if (result.IsFailure)
+
+​        return;
+
+ 
+
+​    _atm.DispenseMoney(amount);
+
+​    _repository.Save(_atm);
+
+}
+
+In this version, the second “if” statement we introduced does  represent domain logic. It decides whether we will be dispensing cash to  the user. However, unlike in the first conditional operator, it’s not  the Atm entity who makes that decision. It’s the application service  itself.
+
+It is possible now to take cash from the Atm even if the payment has  failed prior to it. The domain entity doesn’t hold this invariant for  us. And it’s impossible to introduce such an invariant without violating  the entity’s isolation because in order to check this precondition it  will have to call the 3rd party service.
+
+So, what to do in such situation? This is where domain services can  be helpful. You can attribute to them any business decisions which  require additional information from the external world and which cannot  be made by entities and value objects because of that:
+
+public void WithdrawMoney(decimal amount)
+
+{
+
+​    Atm atm = _repository.Get();
+
+​    _atmService.WithdrawMoney(atm, amount);
+
+​    _repository.Save(_atm);
+
+}
+
+public sealed class AtmService // Domain service
+
+{
+
+​    public void WithdrawMoney(Atm atm, decimal amount)
+
+​    {
+
+​        if (!atm.CanDispenseMoney(amount))
+
+​            return;
+
+ 
+
+​        decimal amountWithCommission = atm.CalculateAmountWithCommission(amount);
+
+​        Result result = _paymentGateway.ChargePayment(amountWithCommission);
+
+ 
+
+​        if (result.IsFailure)
+
+​            return;
+
+ 
+
+​        atm.DispenseMoney(amount);
+
+​    }
+
+}
+
+The domain service here is a middle ground between impurity and the  amount of complexity / business logic held. On one hand, we can’t make  this service completely isolated because it has to work with the payment  gateway in order to do its work. On the other, we don’t attribute too  much domain logic to it, only the knowledge regarding how to exchange  cash for credit.
+
+We still attribute as much logic as possible to the entity. For  example, the act of dispensing cash is still a responsibility of Atm.  And we still try to isolate the domain service as much as possible. For  example, we don’t make it work with the repository as it is not required  to make the business decision. The impurity and the domain logic  introduced to the service are the bare minimum here. Just enough for it  to work properly.
+
+This extraction may look questionable. Isn’t it just a shift of  responsibilities with no practical benefits? There are some benefits,  however. The code in the domain service is more testable than in the  application service. It has fewer external dependencies and therefore we  need to use fewer test doubles in order to unit test it. This service  is of course not as testable as the entity but still. The second benefit  is that this way we prevent domain knowledge leakage and keep all  domain logic within the domain model boundary which may be helpful for  readability.
+
+I wouldn’t say that in this particular example these two benefits  play a significant part. It’s mostly fine to keep a little bit of logic  that doesn’t fit an entity in an application service itself and not  introduce a separate domain service every single time. Make sure,  however, that this logic is not duplicated and that it is not too  complex. If you see the DRY principle is violated or the application  service becomes too complex, you need to definitely introduce a domain  service.
+
+## Injecting a domain service into an entity
+
+A question I sometimes hear is: can a domain service be injected into an entity?
+
+I personally distinct two types of domain services: pure (isolated)  and impure (non-isolated). The former is closed under entities and value  objects and doesn’t depend on the external world. *AtmService* is an example of an impure domain service.
+
+Injection of an impure domain service into entities breaks the  isolation, so I’d recommend against it. On the other hand, a pure domain  service doesn’t do any harm, so it’s totally fine to refer to them from  your entities and value objects.
+
+## Summary
+
+- Domain services carry domain knowledge; application services don’t (ideally).
+- Domain services hold domain logic that doesn’t naturally fit entities and value objects.
+- Introduce domain services when you see that some logic cannot be  attributed to an entity/value object because that would break their  isolation.
+
+## Related articles
+
+- [What is domain logic?](http://enterprisecraftsmanship.com/2016/08/25/what-is-domain-logic/)
+- [Domain model isolation](http://enterprisecraftsmanship.com/2016/09/01/domain-model-isolation/)
+- [Services in Domain-Driven Design](http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/) by Lev Gorodinski
