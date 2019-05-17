@@ -1,0 +1,2 @@
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误	CS0121	以下方法或属性之间的调用具有二义性:“System.AbpStringExtensions.RemovePostFix(string, params string[])”和“Abp.Extensions.StringExtensions.RemovePostFix(string, params string[])”	Dg.ERM.Web.Host	E:\DgProject\DDDgPractice\Dg.ERM\4.6.0RF\aspnet-core\src\Dg.ERM.Web.Host\Startup\Startup.cs	56	活动的
