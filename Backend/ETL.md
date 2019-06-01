@@ -9,3 +9,4 @@
 9.具备良好的抗压能力、沟通能力和团队精神；
 
 https://www.zhipin.com/job_detail/9bf170b3a08a889c1HN43t21ElU~.html
+
