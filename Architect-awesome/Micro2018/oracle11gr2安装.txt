@@ -1,0 +1,212 @@
+oracleserver
+
+1:检查系统jdk 
+ 1.1 检查java 版本
+   执行命令  java -version
+   如果显示：
+	openjdk version "1.8.0_102"
+	OpenJDK Runtime Environment (build 1.8.0_102-b14)
+	OpenJDK 64-Bit Server VM (build 25.102-b14, mixed mode)
+ 1.2 检查已jdk 安装包
+	执行命令  rpm -aq | grep java
+	如果显示：
+	java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+	python-javapackages-3.4.1-11.el7.noarch
+	tzdata-java-2016g-2.el7.noarch
+	javapackages-tools-3.4.1-11.el7.noarch
+	java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+	java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+	java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64 
+ 1.3 卸载 jdk (如果1.2 步骤检查系统安装jdk则执行卸载，否则不执行)
+     rpm -e --nodeps tzdata-java-2016g-2.el7.noarch
+	 rpm -e --nodeps java-1.7.0-openjdk-1.7.0.111-2.6.7.8.el7.x86_64
+	 rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.111-2.6.7.8.el7.x86_64
+	 rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64
+	 rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.102-4.b14.el7.x86_64
+	或者
+	rpm -aq | grep java | xargs rpm -e --nodeps
+	之后再次输入rpm -qa | grep java 查看卸载情况
+
+ 1.4：创建jdk 安装目录
+      mkdir /etc/java
+	  新建目录赋权限
+	  chmod -R 777 /etc/java
+1.5 下载jdk
+    下载jdk linux版本 jdk-8u171-linux-x64.tar.gz
+	上传至 /etc/java 目录下 
+	解压 jdk
+	tar -zxvf jdk-8u171-linux-x64.tar.gz
+	（如果上传至其他目录下面则用下面命令复制到新建的jdk安装目录下面）
+	cp -r  cp -r jdk1.8.0_171/ /etc/java
+1.6 配置环境变量
+    执行：vi /etc/profile
+	在最前面加：
+	export JAVA_HOME=/etc/java/jdk1.8.0_171
+	export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
+	export PATH=$PATH:$JAVA_HOME/bin
+	执行：source /etc/profile 使jdk环境变量生效
+1.5 检查jdk 是否已经生效
+	执行命令：java -version
+	如果显示下面的java版本信息说明已经安装成功：
+	java version "1.8.0_171"
+	Java(TM) SE Runtime Environment (build 1.8.0_171-b11)
+	Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
+2：配置host
+  2.1 配置系统hosts
+    执行命令：vi /etc/hosts
+    把原有的（localhost.localdomain改为你自己的linux名）：
+	127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+	::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+	在最后面再添加：
+	192.168.81.130 localhost 
+	192.168.81.130 oracleserver
+	备注：192.168.81.130 是我自己的linux ip地址，可根据自己实际的IP地址配置，用ifconfig 命令查看自己的ip地址，oracleserver 是我自己的linux主机名，可根据自己实际的主机名称填写。
+3：检查 oracle安装时的依赖包
+  3.1 oacle 安装时所需的安装包
+	binutils-2.20.51.0.2-5.11.el6 (x86_64) 
+	compat-libcap1-1.10-1 (x86_64) 
+	compat-libstdc++-33-3.2.3-69.el6 (x86_64) 
+	compat-libstdc++-33-3.2.3-69.el6.i686 
+	gcc-4.4.4-13.el6 (x86_64) 
+	gcc-c++-4.4.4-13.el6 (x86_64) 
+	glibc-2.12-1.7.el6 (i686) 
+	glibc-2.12-1.7.el6 (x86_64) 
+	glibc-devel-2.12-1.7.el6 (x86_64) 
+	glibc-devel-2.12-1.7.el6.i686 
+	ksh 
+	libgcc-4.4.4-13.el6 (i686) 
+	libgcc-4.4.4-13.el6 (x86_64) 
+	libstdc++-4.4.4-13.el6 (x86_64) 
+	libstdc++-4.4.4-13.el6.i686 
+	libstdc++-devel-4.4.4-13.el6 (x86_64) 
+	libstdc++-devel-4.4.4-13.el6.i686 
+	libaio-0.3.107-10.el6 (x86_64) 
+	libaio-0.3.107-10.el6.i686 
+	libaio-devel-0.3.107-10.el6 (x86_64) 
+	libaio-devel-0.3.107-10.el6.i686 
+	make-3.81-19.el6 
+  检查命令（建议还是自己一个一个检查）
+  rpm -q package_name
+ 3.2 使用yum 安装缺少的包
+ yum install -y binutils* compat-libcap* compat-libstdc++* gcc* glibc* ksh* libaio*  libgcc* libstdc++* libXi* libXtst*  make* sysstat*
+ 如果提示：
+ 另外一个程序锁定了 yum；等待它退出……
+  The other application is: PackageKit
+    Memory :  36 M RSS (347 MB VSZ)
+    Started: Sat Jun 30 23:34:01 2018 - 01:46 ago
+    State  : Sleeping, pid: 14551
+直接杀掉：
+  rm -f /var/run/yum.pid
+  再执行：yum install -y binutils* compat-libcap* compat-libstdc++* gcc* glibc* ksh* libaio*  libgcc* libstdc++* libXi* libXtst*  make* sysstat*
+  
+  如果使用 yum 安装依赖包时候，总是下载超时
+  运行命令：cd /etc/yum.repos.d
+  vi public-yum-ol6.repo
+  修改：[public_ol6_latest]
+		name=Oracle Linux $releasever Latest ($basearch)
+		baseurl=http://yum.oracle.com/repo/OracleLinux/OL6/latest/$basearch/(是以已经修改后的)
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+		gpgcheck=1
+		enabled=1
+	中baseurl为：http://yum.oracle.com/repo/OracleLinux/OL6/latest/$basearch/
+	如果是内网环境 则需要在：http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/index.html 找到需要的包，下载后上传服务器使用rpm安装
+
+4：创建oracle组，创建oracle 用户
+   4.1 
+     groupadd oinstall
+	 groupadd dba
+     useradd -m -g oinstall -G dba oracle
+	 检查 oracle 用户
+	 id oracle 
+	 如果输出：
+	 uid=500(oracle) gid=500(oinstall) 组=500(oinstall),501(dba)
+	 则创建成功
+	 修改oracle用户密码：
+	 passwd oracle
+5：创建oracle 安装目录
+   5.1 mkdir -p /db/app/oracle
+   5.2 oracle 安装目录赋权限：
+       chmod -R 777 /db/app/oracle
+   5.3 修改内核参数 
+		vi /etc/sysctl.conf
+		添加下面的代码到最后：
+			fs.aio-max-nr = 1048576
+			fs.file-max = 6815744
+			kernel.shmall = 2097152
+			kernel.shmmax = 536870912
+			kernel.shmmni = 4096
+			kernel.sem = 250 32000 100 128
+			net.ipv4.ip_local_port_range = 9000 65500
+			net.core.rmem_default = 262144
+			net.core.rmem_max = 4194304
+			net.core.wmem_default = 262144
+			net.core.wmem_max = 1048576
+	执行：/sbin/sysctl -p 使修改生效
+   5.4：修改/etc/security/limits.conf文件
+      vi /etc/security/limits.conf
+	  添加下面的代码到最后：
+		oracle soft nproc 2047
+		oracle hard nproc 16384
+		oracle soft nofile 1024
+		oracle hard nofile 65536
+   5.5 oracle 安装包文件夹权限修改，以防止无法读取而终止
+     chmod -R 777 /usr/soft/database/(usr/soft 是上传oracle安装包并解压的目录，需根据实际上传目录修改权限)
+   5.6 修改oracle 环境变量
+     切换至 oracle 账号下 su - oracle
+	 执行：vi /home/oracle/.bash_profile
+	 在最下面加入一下代码：
+		export TMP=/tmp
+		export ORACLE_HOSTNAME=oracleserver
+		# oacle实例名
+		export ORACLE_UNQNAME=orcl
+		export ORACLE_BASE=/db/app/oracle
+		export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/db_1
+		# oacle实例名
+		export ORACLE_SID=orcl
+		#xterm窗口模式安装
+		export ORACLE_TERM=xterm 
+		#防止安装过程出现乱码
+		export LANG=C 
+		export NLS_LANG=AMERICAN_AMERICA.ZHS16GBK 
+		PATH=/usr/sbin:$PATH:$ORACLE_HOME/bin
+		export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib;
+		export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib;
+		umask 022
+  执行命令：source /home/oracle/.bash_profile 使环境变量生效
+    5.7 为了显示图形界面需执行一下命令：
+	切换至 root账号下：su - root
+	执行命令：xhost +
+	切换至oracle 账号下：su - oracle
+	执行命令:export DISPLAY=:0.0
+	xhost +
+6、安装oracle
+  6.1 执行命令
+    cd /usr/soft/database/
+	./runInstaller
+	安装结束时根据系统提示运行以下脚本
+	/db/app/oraInventory/orainstRoot.sh
+	/db/app/oracle/product/11.2.0/db_1/root.sh
+  根据提示运行：/usr/local/bin
+  备注：如果远程连接不上可以关掉防火墙试试：
+  chkconfig iptables off
+  服务器重启后续执行：
+  su - oracle  切换到oracle用户模式下
+  执行：cd $ORACLE_HOME/bin
+  sqlplus
+ SQL> startup //起动数据库
+ SQL> exit  //退出sqlplus ，起动监听
+ cd $ORACLE_HOME/bin //进入oracle安装目录
+ lsnrctl start  //起动监听
+  
+  
+
+   
+   
+
+
+
+	
+	
+	
+	 
+
