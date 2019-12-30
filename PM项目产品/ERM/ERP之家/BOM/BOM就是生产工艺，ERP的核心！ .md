@@ -4,7 +4,7 @@
 
 
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/3JD5rxrmNYiazUYibcfghfviaWjepCyDoAsyUKygT5nKTTt2EFCLyjE2HqDLnI59m2ZmhG9ib8WOhuakGHskWgC7Yg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](BOM就是生产工艺，ERP的核心！ .assets/640.webp)
 
 
 
@@ -12,11 +12,11 @@
 
 
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/W2dmoZqQ2RexnHQ3yTzS2EO9ClyficW4tibTp8GSWJsmXn1e5eDQjsnG0BIbKqLk4tSm1ckPtwo46e061bgqAM5Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](BOM就是生产工艺，ERP的核心！ .assets/640.webp)
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/W2dmoZqQ2RexnHQ3yTzS2EO9ClyficW4tApBicNolIBaRkD5BjqXoKFVPVOHfKC8ajOy4AF9kSRZfGWlQVw2XBGQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](BOM就是生产工艺，ERP的核心！ .assets/640.webp)
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/W2dmoZqQ2RexnHQ3yTzS2EO9ClyficW4tmhHribM1958gZyWHdHTmibVqKoGzbCq9gYIy3yeJwhfx4tjR1E88JWeQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](BOM就是生产工艺，ERP的核心！ .assets/640.webp)
 
 ![img](https://mmbiz.qpic.cn/mmbiz_jpg/W2dmoZqQ2RexnHQ3yTzS2EO9ClyficW4tnQWmM86o6G8SlJDytr7yDLtQl83A6yUWib3EET4wjpERiaOQ7WFnMcCQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
