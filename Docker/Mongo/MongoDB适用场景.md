@@ -1,4 +1,4 @@
- MongoDB 与 MySQL 的适用场景：
+MongoDB 与 MySQL 的适用场景：
 
 MongoDB 的适用场景为：数据不是特别重要（例如通知，推送这些），数据表结构变化较为频繁，数据量特别大，数据的并发性特别高，数据结构比较特别（例如地图的位置坐标），这些情况下用 MongoDB ， 其他情况就还是用 MySQL ，这样组合使用就可以达到最大的效率。
 
@@ -41,11 +41,11 @@ MongoDB 与 MySQL 的比较
 MongoDB 相对于 MySQL 的优势
 1. 适合那些对数据库具体数据格式不明确或者数据库数据格式经常变化的需求模型，而且对开发者十分友好。
 2. 自带一个分布式文件系统，可以很方便地部署到服务器机群上。
-    MongoDB 里有一个Shard的概念，就是方便为了服务器分片使用的。每增加一台Shard，MongoDB 的插入性能也会以接近倍数的方式增长，磁盘容量也很可以很方便地扩充。
+  MongoDB 里有一个Shard的概念，就是方便为了服务器分片使用的。每增加一台Shard，MongoDB 的插入性能也会以接近倍数的方式增长，磁盘容量也很可以很方便地扩充。
 3. 自带了对map-reduce运算框架的支持，这也很方便进行数据的统计。类似于group by
-    MongoDB 与 MySQL 命令对比 传统的关系数据库一般由数据库（database）、表（table）、记录（record）三个层次概念组成，
-    MongoDB 是由数据库（database）、集合（collection）、文档对象（document）三个层次组成。
-    MongoDB 对于关系型数据库里的表，但是集合中没有列、行和关系概念，这体现了模式自由的特点。
+  MongoDB 与 MySQL 命令对比 传统的关系数据库一般由数据库（database）、表（table）、记录（record）三个层次概念组成，
+  MongoDB 是由数据库（database）、集合（collection）、文档对象（document）三个层次组成。
+  MongoDB 对于关系型数据库里的表，但是集合中没有列、行和关系概念，这体现了模式自由的特点。
 
 
 MongoDB 和 Redis 的区别：
